@@ -1,0 +1,46 @@
+<!--
+  Generated template for the InboxPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <!-- <ion-buttons start>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons> -->
+    <ion-buttons>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+      </ion-buttons>
+    <ion-title>Inbox</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <!--<button ion-item [navPush] = "emailpage"-->
+                     <!--[navParams] = correo-->
+    <button ion-item
+            *ngFor="let correo of listaCorreos"
+            (click)="goToEmail(correo)" detail-none>
+      <ion-avatar item-left>
+        <img class="imgAvatar" [src]="'../../assets/imgs/'+correo.name.charAt(0) + '.png'">
+      </ion-avatar>
+      <h1>{{ correo.subject }}</h1>
+      <h3> {{ correo.emailAddress }} </h3>
+      <p>{{ correo.message }}</p>
+    </button>
+  </ion-list>
+  <ion-fab right bottom>
+    <button ion-fab color="danger" (click)="newMailFab()">
+      <ion-icon name="create"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

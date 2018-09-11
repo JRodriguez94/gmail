@@ -1,0 +1,20 @@
+<ion-menu [content]="nav">
+    <ion-header>
+        <ion-toolbar>Menu</ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <button ion-item (click)="goToPage(inboxPage)">
+            <ion-icon name="mail" item-left></ion-icon>    
+            Inbox
+              <ion-badge item-right color="dark">{{unreadedInbox}}</ion-badge>
+            </button>
+            <button ion-item (click)="goToPage(sendedPage)">
+            <ion-icon name="send" item-left></ion-icon>
+            Enviados</button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+
+<ion-nav [root]="rootPage" #nav></ion-nav>
